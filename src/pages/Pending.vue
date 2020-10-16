@@ -1,16 +1,13 @@
 <template>
   <Layout>
-    <SubmissionList title="Pending submissions" :submissions="submissions">
-      Pending submissions are the open
-      <ExternalLink
-        href="https://github.com/nuria-fl/jamstack-cfp/pulls?q=is%3Apr+is%3Aopen+label%3Asubmission"
+    <SubmissionList title="Envíos pendientes" :submissions="submissions">
+      Los envíos pendientes son los <ExternalLink
+        href="https://github.com/gnuno/gnuno-talks/pulls?q=is%3Apr+is%3Aopen+label%3Asubmission"
         >pull requests</ExternalLink
-      >. By adding the GitHub's API as a
+      >. Al agregar la API de GitHub como 
       <ExternalLink href="https://gridsome.org/plugins/@gridsome/source-graphql"
-        >GraphQL source</ExternalLink
-      >
-      we can compile them statically. A deploy is triggered after a new PR is
-      opened to always list latest submissions.
+        >fuente de GraphQL</ExternalLink
+      > podemos compilarlos estáticamente. Una deploy se activa después de que se abre un nuevo RP para mostrar siempre las últimas presentaciones.
     </SubmissionList>
   </Layout>
 </template>
@@ -18,7 +15,7 @@
 <page-query>
   query {
     github {
-      repository(owner: "gnuno", name: "jamstack-cfp") {
+      repository(owner: "gnuno", name: "gnuno-talks") {
         pullRequests(last: 100, labels: "submission", states: OPEN) {
           edges {
             node {

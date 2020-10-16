@@ -18,7 +18,7 @@ function preflight() {
 
 function submit(data) {
   const owner = "gnuno";
-  const name = "jamstack-cfp";
+  const name = "gnuno-talks";
 
   return axios.request({
     url: `https://api.github.com/repos/${owner}/${name}/dispatches`,

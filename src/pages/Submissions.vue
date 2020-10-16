@@ -1,8 +1,7 @@
 <template>
   <Layout>
-    <SubmissionList title="Accepted submissions" :submissions="submissions">
-      Accepted submissions are added to the repository as json files, after the
-      pull request is merged.
+    <SubmissionList title="Envíos Aceptados" :submissions="submissions">
+      Los envíos aceptados se agregan al repositorio como archivos json, después de mergear el pull request.
     </SubmissionList>
   </Layout>
 </template>

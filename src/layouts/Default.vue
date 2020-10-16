@@ -1,15 +1,16 @@
 <template>
   <div class="container mx-auto my-8 max-w-3xl p-5">
-    <h1 class="text-5xl font-extrabold leading-none mb-4">
-      A very awesome conference
-    </h1>
+    <div class="flex">
+      <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
+        <img src="https://www.gnuno.com.ar/images/tuxgnu.png" alt="GNUno" />
+      </div>
+      <h1 class="text-5xl font-extrabold leading-none mb-4">
+        GNUno Talks
+      </h1>
+    </div>
     <p class="text-2xl font-light leading-snug">
-      This is an example call for papers application, made to showcase how to
-      make use of GitHub Actions to add user generated content to your JAMStack
-      static site! Check out the
-      <ExternalLink href="https://github.com/nuria-fl/jamstack-cfp"
-        >repo</ExternalLink
-      >.
+      Esta pagina se utilizara para proponer nuevas charlas, esta pagina fue
+      hecha con GitHub Actions y JAMStack.
     </p>
     <div class="mt-6 mb-8 border-b border-gray-200">
       <nav class="-mb-px flex">
@@ -18,21 +19,21 @@
           class="whitespace-no-wrap ml-8 py-4 px-1 border-b-2 font-medium text-sm leading-5 focus:outline-none focus:text-indigo-800 focus:border-indigo-700"
           exact-active-class="border-indigo-500 text-indigo-600"
         >
-          Submit
+          Envío
         </g-link>
         <g-link
           to="/submissions"
           class="whitespace-no-wrap ml-8 py-4 px-1 border-b-2 font-medium text-sm leading-5 focus:outline-none focus:text-indigo-800 focus:border-indigo-700"
           exact-active-class="border-indigo-500 text-indigo-600"
         >
-          Accepted submissions
+          Envíos Aceptados
         </g-link>
         <g-link
           to="/pending"
           class="whitespace-no-wrap ml-8 py-4 px-1 border-b-2 font-medium text-sm leading-5 focus:outline-none focus:text-indigo-800 focus:border-indigo-700"
           exact-active-class="border-indigo-500 text-indigo-600"
         >
-          Pending submissions
+          Envíos pendientes
         </g-link>
       </nav>
     </div>

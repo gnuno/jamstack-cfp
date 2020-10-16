@@ -34,7 +34,7 @@ export default {
     },
     submissions: {
       type: Array,
-      required: true,
+      required: false,
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="py-10 border-t-2 border-gray-200">
     <p class="text-sm leading-5 text-gray-600">
-      Submitted by {{ submission.name }}
+      Presentado por {{ submission.name }}
     </p>
     <div class="block">
       <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
@@ -20,7 +20,7 @@ export default {
   props: {
     submission: {
       type: Object,
-      required: true,
+      required: false,
     },
   },
 };

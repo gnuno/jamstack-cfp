@@ -7,3 +7,4 @@ dist
 .env
 .env.*
 functions-dist
+package-lock.json

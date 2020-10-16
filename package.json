@@ -1,5 +1,5 @@
 {
-  "name": "jamstack-cfp",
+  "name": "gnuno-talks",
   "private": true,
   "scripts": {
     "build": "gridsome build && npm run functions:build",
