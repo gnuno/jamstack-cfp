@@ -18,7 +18,7 @@
 <page-query>
   query {
     github {
-      repository(owner: "nuria-fl", name: "jamstack-cfp") {
+      repository(owner: "gnuno", name: "jamstack-cfp") {
         pullRequests(last: 100, labels: "submission", states: OPEN) {
           edges {
             node {

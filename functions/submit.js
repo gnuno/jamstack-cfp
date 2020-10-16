@@ -17,7 +17,7 @@ function preflight() {
 }
 
 function submit(data) {
-  const owner = "nuria-fl";
+  const owner = "gnuno";
   const name = "jamstack-cfp";
 
   return axios.request({
