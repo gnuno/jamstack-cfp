@@ -1,13 +1,13 @@
 ---
-title: {{ payload.sender.title }}
+title: {{ env.title }}
 labels: talk
 ---
 **Speaker**: {{ env.speaker }}
-**Titulo** : {{ github.event.client_payload.title }}
-**Descripción** : {{ github.event.client_payload.description }}
+**Titulo** : {{ env.title }}
+**Descripción** : 
 
-**Tus datos**: {{ payload.client_payload.date }}
-- **Bio**: {{ payload.sender.date}}
+**Tus datos**: 
+- **Bio**: 
 - **Twitter**: 
 - **Instagram**: 
 

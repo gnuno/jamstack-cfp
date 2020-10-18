@@ -14,5 +14,6 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          speaker:  github.event.client_payload.speaker
+          speaker:  ${{ github.event.client_payload.speaker }}
+          title:  ${{ github.event.client_payload.speaker }}
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
