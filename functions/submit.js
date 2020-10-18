@@ -25,7 +25,7 @@ function submit(data) {
     speaker: data.speaker,
     title: data.title,
     description: data.description,
-    bio: data.twitter,
+    bio: data.bio,
     twitter: data.twitter,
     instagram: data.instagram,
     slides: data.slides,
@@ -33,7 +33,7 @@ function submit(data) {
     ready: data.ready,
     when: data.when
   };
-  
+
   return axios.request({
     url: `https://api.github.com/repos/${owner}/${name}/dispatches`,
     method: "post",
