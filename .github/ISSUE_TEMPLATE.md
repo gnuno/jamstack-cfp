@@ -1,5 +1,4 @@
 ---
-title: {{ env.title }}
 labels: talk
 ---
 **Speaker**: {{ env.speaker }}

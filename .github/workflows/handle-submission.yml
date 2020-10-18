@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
-      - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - uses: actions/checkout@v2
       - uses: JasonEtco/create-an-issue@v2.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           speaker:  ${{ github.event.client_payload.speaker }}
           title:  ${{ github.event.client_payload.speaker }}
+        with:
+          title: ${{ github.event.client_payload.speaker }}
+      - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
