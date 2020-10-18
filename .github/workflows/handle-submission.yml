@@ -33,7 +33,6 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
-          publish-dir: './dist'
           netlify-config-path: ./netlify.toml
           production-branch: master
           github-token: ${{ secrets.GH_TOKEN_PERSONAL }}
