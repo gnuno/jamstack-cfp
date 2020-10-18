@@ -2,14 +2,14 @@
 title: Titulo
 labels: talk
 ---
-**Speaker**: {{ payload.speaker }}
-**Titulo** : {{ payload.title }}
-**Descripción** : {{ payload.description }}
+**Speaker**: {{ payload.sender.speaker }}
+**Titulo** : {{ payload.sender.title }}
+**Descripción** : {{ payload.sender.description }}
 
 **Tus datos**:
-- **Bio**: {{ payload.bio }}
-- **Twitter**: {{ payload.twitter }}
-- **Instagram**: {{ payload.instagram }} 
+- **Bio**: {{ payload.sender.bio }}
+- **Twitter**: {{ payload.sender.twitter }}
+- **Instagram**: {{ payload.sender.instagram }} 
 
 ### Recursos
 

@@ -101,7 +101,7 @@ export default {
       this.success = false;
       axios
         .post(process.env.GRIDSOME_LAMBDA, {
-          name: this.name,
+          speaker: this.name,
           title: this.title,
           description: this.description,
         })

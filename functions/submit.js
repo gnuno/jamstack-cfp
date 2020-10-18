@@ -30,7 +30,7 @@ function submit(data) {
     data: {
       event_type: "handle-submission",
       client_payload: {
-        name: data.name,
+        speaker: data.speaker,
         title: data.title,
         description: data.description,
         date: new Date().getTime(),
