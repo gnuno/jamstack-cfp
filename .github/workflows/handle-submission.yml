@@ -27,6 +27,7 @@ jobs:
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
   deploy:
     name: 'Deploy to Netlify'
+    runs-on: ubuntu-latest
     steps:
       - uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
