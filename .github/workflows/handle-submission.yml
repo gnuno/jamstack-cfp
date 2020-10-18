@@ -10,13 +10,10 @@ jobs:
     steps:
       - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
       - uses: actions/checkout@v2
-      - uses: JasonEtco/create-an-issue@v2.3.1
+      - uses: JasonEtco/create-an-issue@v2.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           speaker:  ${{ github.event.client_payload.speaker }}
           title:  ${{ github.event.client_payload.title }}
-        with:
-          title: ${{ github.event.client_payload.title }}
-          labels: talk
       - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'

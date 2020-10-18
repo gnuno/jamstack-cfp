@@ -2,9 +2,8 @@
 title: Titulo
 labels: talk
 ---
-**Speaker**: {{ toJson(github.event.client_payload) }}
-**Titulo** : {{ toJson(github.event.payload) }}
-**Titulo** : {{ toJson(env) }}
+**Speaker**: {{ env.speaker }}
+**Titulo** : {{ env.title }}
 **Descripción** : {{env}}
 
 **Tus datos**: 
