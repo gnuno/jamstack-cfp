@@ -34,6 +34,13 @@ function submit(data) {
         title: data.title,
         description: data.description,
         date: new Date().getTime(),
+        bio: data.bio,
+        twitter: data.twitter,
+        instagram: data.instagram,
+        slides: data.slides,
+        repo: data.repo,
+        ready: data.ready,
+        when: data.when
       },
     },
   });

@@ -1,24 +1,22 @@
 ---
-title: Titulo
+title: {{ env.title }}
 labels: talk
 ---
 **Speaker**: {{ env.speaker }}
 **Titulo** : {{ env.title }}
-**Descripción** : {{env}}
+**Descripción** : {{env.description}}
 
 **Tus datos**: 
-- **Bio**: 
-- **Twitter**: 
-- **Instagram**: 
+- **Bio**: {{env.bio}}
+- **Twitter**: {{env.twitter}}
+- **Instagram**: {{env.instagram}}
 
 ### Recursos
 
-* **Slides de la presentación**: URL de la presentación (Si tenés).
-* **Repositorio de la charla**: URL del repositorio con el código de la charla (Si tenés).
+* **Slides de la presentación**: {{env.slides}}
+* **Repositorio de la charla**: {{env.repo}}
 
 ### Extra
 
-* **¿Tenés la charla preparada?**: (Sí, No todavía, Necesito ayuda para prepararla porque solo es una idea)
-* **¿A partir de qué mes la podrías dar?:** (A partir de..., La podría dar solo en..., porque vengo de viaje)
-
-> Avisanos si necesitás algo especial para poder dar la charla así lo podemos planificar con tiempo.
+* **¿Tenés la charla preparada?**: {{env.ready}}
+* **¿A partir de qué mes la podrías dar?:** {{env.when}}

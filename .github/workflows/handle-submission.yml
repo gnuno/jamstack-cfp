@@ -15,5 +15,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           speaker:  ${{ github.event.client_payload.speaker }}
           title:  ${{ github.event.client_payload.title }}
+          description: ${{ github.event.client_payload.description }}
+          bio: ${{ github.event.client_payload.bio }}
+          twitter: ${{ github.event.client_payload.twitter }}
+          instagram: ${{ github.event.client_payload.instagram }}
+          slides: ${{ github.event.client_payload.slides }}
+          repo: ${{ github.event.client_payload.repo }}
+          ready: ${{ github.event.client_payload.ready }}
+          when: ${{ github.event.client_payload.when }}
       - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
