@@ -1,5 +1,5 @@
 ---
-title: {{tools.context.payload.title}}
+title: Titulo
 labels: talk
 ---
 **Speaker**: {{ tools.context.payload.speaker }}
