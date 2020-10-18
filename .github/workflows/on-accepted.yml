@@ -12,7 +12,6 @@ jobs:
       - run: echo " ${{toJSON(github.event.issue)}} "
       - run: echo "contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == 'closed'"
       - name: "Chequeo de label"  
-        if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
         uses: peter-evans/repository-dispatch@v1.1.2
         if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
         with:
