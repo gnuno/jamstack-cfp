@@ -12,4 +12,5 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+      - run: 'echo payload ${{ payload }} and ${{ payload.sender }}'
+      - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'

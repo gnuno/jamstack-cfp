@@ -7,9 +7,9 @@ labels: talk
 **Descripción** : {{ payload.sender.description }}
 
 **Tus datos**:
-- **Bio**: {{ payload.sender.bio }}
-- **Twitter**: {{ payload.sender.twitter }}
-- **Instagram**: {{ payload.sender.instagram }} 
+- **Bio**:
+- **Twitter**: 
+- **Instagram**: 
 
 ### Recursos
 
