@@ -35,6 +35,7 @@ jobs:
         with:
           netlify-config-path: ./netlify.toml
           production-branch: master
+          publish-dir: './dist'
           github-token: ${{ secrets.GH_TOKEN_PERSONAL }}
           production-deploy: true
           deploy-message: "Deploy from GitHub Actions"
