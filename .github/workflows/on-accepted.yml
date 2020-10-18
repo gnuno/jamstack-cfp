@@ -13,6 +13,9 @@ jobs:
       - name: "Chequeo de label"  
         if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
         uses: peter-evans/repository-dispatch@v1.1.2
+        run: echo "${{contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"}} ${{${{github.event.issue.state}} == "closed"}}"
+        if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
         with:
           token: ${{ secrets.GH_TOKEN_PERSONAL }}
+          if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
           event-type: trigger-deploy
