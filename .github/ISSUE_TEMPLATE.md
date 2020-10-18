@@ -1,5 +1,5 @@
 ---
-title: {{ github.event.client_payload.title }}
+title: {{ payload.sender.title }}
 labels: talk
 ---
 **Speaker**: {{ env.speaker }}
