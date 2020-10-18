@@ -4,7 +4,8 @@ labels: talk
 ---
 **Speaker**: {{ toJson(github.event.client_payload) }}
 **Titulo** : {{ toJson(github.event.payload) }}
-**Descripción** : 
+**Titulo** : {{ toJson(env) }}
+**Descripción** : {{env}}
 
 **Tus datos**: 
 - **Bio**: 
