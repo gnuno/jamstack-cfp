@@ -31,7 +31,7 @@
       Pendientes.
     </Alert>
     <template v-else>
-      <Field id="name" :error="nameError" :value.sync="name">
+      <Field id="speaker" :error="nameError" :value.sync="speaker">
         Tu nombre
       </Field>
       <Field id="title" :error="titleError" :value.sync="title">
@@ -44,23 +44,23 @@
         Mini descripción sobre quién sos, que hacés, cuáles son tus gustos,
         profesión, etc. Lo que quieras contar, ¡dale creatividad!
       </Field>
-      <Field id="twitter" :error="titleError" :value.sync="twitter">
+      <Field id="twitter" :value.sync="twitter"  :optional="true">
         Usuario de Twitter (Si tenés)
       </Field>
-      <Field id="instagram" :error="titleError" :value.sync="instagram">
+      <Field id="instagram" :value.sync="instagram"  :optional="true">
         Usuario de Instagram (Si tenés)
       </Field>
-      <Field id="slides" :error="titleError" :value.sync="slides">
+      <Field id="slides" :value.sync="slides" :optional="true">
         URL de la presentación (Si tenés).
       </Field>
-      <Field id="repo" :error="titleError" :value.sync="repo">
+      <Field id="repo" :value.sync="repo"  :optional="true">
         URL del repositorio con el código de la charla (Si tenés)
       </Field>
-      <Field id="ready" :error="titleError" :value.sync="ready">
+      <Field id="ready" :value.sync="ready">
         ¿Tenés la charla preparada? (Sí, No todavía, Necesito ayuda para
         prepararla porque solo es una idea
       </Field>
-      <Field id="when" :error="titleError" :value.sync="when">
+      <Field id="when" :value.sync="when">
         ¿A partir de qué mes la podrías dar?
       </Field>
       <label class="flex text-sm leading-5 text-gray-700 mt-5">
@@ -89,7 +89,7 @@ import Field from "~/components/Field";
 export default {
   data() {
     return {
-      name: "",
+      speaker: "",
       title: "",
       description: "",
       bio: "",
@@ -112,7 +112,7 @@ export default {
   },
   computed: {
     nameError() {
-      if (this.name && this.invalidString(this.name)) {
+      if (this.speaker && this.invalidString(this.speaker)) {
         return "Evite el uso de caracteres especiales";
       }
       return "";
@@ -134,24 +134,22 @@ export default {
       this.success = false;
       axios
         .post(process.env.GRIDSOME_LAMBDA, {
-          speaker: this.name,
+          speaker: this.speaker,
           title: this.title,
           description: this.description,
-
-          bio: data.bio,
-          twitter: data.twitter,
-          instagram: data.instagram,
-          slides: data.slides,
-          repo: data.repo,
-          ready: data.ready,
-          when: data.when,
+          bio: this.bio,
+          twitter: this.twitter,
+          instagram: this.instagram,
+          slides: this.slides,
+          repo: this.repo,
+          ready: this.ready,
+          when: this.when,
         })
         .then(() => {
           this.success = true;
-          this.name = "";
+          this.speaker = "";
           this.title = "";
           this.description = "";
-          this.loading = false;
           this.bio = "";
           this.twitter = "";
           this.instagram = "";
@@ -159,6 +157,7 @@ export default {
           this.repo = "";
           this.ready = "";
           this.when = "";
+          this.loading = false;
         })
         .catch(() => {
           this.loading = false;

@@ -14,9 +14,10 @@
       v-bind="{
         id,
         value,
+        required: !optional
       }"
       @change="$emit('update:value', $event.target.value)"
-      required
+      
     />
     <span
       v-show="error"
@@ -40,6 +41,11 @@ export default {
     error: {
       type: String,
       default: "",
+    },
+    optional:{
+      type: Boolean,
+      default: false,
+      required: false
     },
     type: {
       type: String,

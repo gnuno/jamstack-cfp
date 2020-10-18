@@ -16,10 +16,24 @@ function preflight() {
   };
 }
 
+
+
 function submit(data) {
   const owner = "gnuno";
   const name = "gnuno-talks";
-
+  let client_payload = {
+    speaker: data.speaker,
+    title: data.title,
+    description: data.description,
+    bio: data.twitter,
+    twitter: data.twitter,
+    instagram: data.instagram,
+    slides: data.slides,
+    repo: data.repo,
+    ready: data.ready,
+    when: data.when
+  };
+  
   return axios.request({
     url: `https://api.github.com/repos/${owner}/${name}/dispatches`,
     method: "post",
@@ -29,19 +43,7 @@ function submit(data) {
     },
     data: {
       event_type: "handle-submission",
-      client_payload: {
-        speaker: data.speaker,
-        title: data.title,
-        description: data.description,
-        date: new Date().getTime(),
-        bio: data.bio,
-        twitter: data.twitter,
-        instagram: data.instagram,
-        slides: data.slides,
-        repo: data.repo,
-        ready: data.ready,
-        when: data.when
-      },
+      client_payload: client_payload
     },
   });
 }
@@ -52,7 +54,7 @@ export async function handler(request) {
   }
 
   const body = JSON.parse(request.body);
-
+  
   return submit(body)
     .then(() => {
       return {
