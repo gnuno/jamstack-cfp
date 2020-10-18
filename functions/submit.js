@@ -33,7 +33,7 @@ function submit(data) {
     ready: data.ready,
     when: data.when
   };
-
+  
   return axios.request({
     url: `https://api.github.com/repos/${owner}/${name}/dispatches`,
     method: "post",
@@ -54,7 +54,7 @@ export async function handler(request) {
   }
 
   const body = JSON.parse(request.body);
-  
+  if(!request.body.speaker) return;
   return submit(body)
     .then(() => {
       return {
