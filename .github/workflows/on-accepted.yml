@@ -1,8 +1,7 @@
-name: "on-accepted"
+name: "On Accepted"
 on:
   issues:
-    types: [closed]
-  config:
+    state: closed
     label: Accepted
 
 jobs:
