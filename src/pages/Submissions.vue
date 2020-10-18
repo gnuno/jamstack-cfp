@@ -1,22 +1,31 @@
 <template>
   <Layout>
-    <SubmissionList title="Envíos Aceptados" :submissions="submissions">
+    <SubmissionList title="Envíos Aceptados" :issues="issues">
       Los envíos aceptados se agregan al repositorio como archivos json, después de mergear el pull request.
     </SubmissionList>
   </Layout>
 </template>
 
 <page-query>
-  query {
-    submissions: allSubmission {
+    query {
+    github {
+      repository(owner: "gnuno", name: "gnuno-talks") {
+        issues(last:20, labels: ["Accepted"], states:CLOSED) {
       edges {
         node {
-          id
-          date
-          description
-          name
           title
+          bodyHTML
+          url
+          labels(first:5) {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
         }
+      }},
       }
     }
   }
@@ -30,8 +39,13 @@ export default {
     SubmissionList,
   },
   computed: {
-    submissions() {
-      return this.$page.submissions.edges.map((e) => e.node);
+    issues() {
+      console.log(this.$page.github.repository);
+      let issues = [];
+      this.$page.github.repository.issues.edges.map((e, index) => {
+        issues.push({id:index, html: e.node.bodyHTML})
+      })
+      return issues;
     },
   },
 };

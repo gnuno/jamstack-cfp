@@ -1,24 +1,23 @@
 <template>
-  <div class="py-10 border-t-2 border-gray-200">
-    <p class="text-sm leading-5 text-gray-600">
-      Presentado por {{ submission.name }}
-    </p>
+  <div class="py-5 border-t-2 border-gray-200">
     <div class="block">
-      <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
-        {{ submission.title }}
-      </h3>
-      <span
-        class="block mt-3 text-base leading-6 text-gray-600 whitespace-pre-line"
-        >{{ submission.description }}</span
+      <span v-html="issue.html" class="block mt-3 text-base leading-6 text-gray-600"
+        ></span
       >
     </div>
   </div>
 </template>
+<style>
+ul{
+list-style: disc;
+padding: revert;
+}
+</style>
 
 <script>
 export default {
   props: {
-    submission: {
+    issue: {
       type: Object,
       required: false,
     },

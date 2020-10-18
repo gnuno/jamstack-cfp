@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <SubmissionList title="Envíos pendientes" :submissions="submissions">
+    <SubmissionList title="Envíos pendientes" :issues="issues">
       Los envíos pendientes son los <ExternalLink
         href="https://github.com/gnuno/gnuno-talks/pulls?q=is%3Apr+is%3Aopen+label%3Asubmission"
         >pull requests</ExternalLink
@@ -16,17 +16,14 @@
   query {
     github {
       repository(owner: "gnuno", name: "gnuno-talks") {
-        pullRequests(last: 100, labels: "submission", states: OPEN) {
-          edges {
-            node {
-              id
-              body
-              createdAt
-            }
+        issues(last:20, states:OPEN) {
+      edges {
+        node {
+          bodyHTML
           }
         }
+      }},
       }
-    }
   }
 </page-query>
 
@@ -40,23 +37,14 @@ export default {
     SubmissionList,
   },
   computed: {
-    submissions() {
-      return this.$page.github.repository.pullRequests.edges.map((e) => {
-        const [_, title, name, description] = e.node.body.match(
-          /# (.+)\n## by (.+)\n> ((.|\n)+)/
-        );
-
-        return {
-          id: e.node.id,
-          date: e.node.createdAt,
-          description,
-          name,
-          title,
-        };
-      });
+    issues() {
+      let issues = [];
+      this.$page.github.repository.issues.edges.map((e, index) => {
+        issues.push({id:index, html: e.node.bodyHTML})
+      })
+      return issues;
     },
-  },
-};
+}};
 </script>
 
 <style lang="scss" scoped></style>

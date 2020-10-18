@@ -10,11 +10,11 @@
         <slot />
       </p>
     </div>
-    <div class="mt-6">
-      <Submission
-        v-for="submission in submissions"
-        :key="submission.id"
-        :submission="submission"
+    <div class="mt-6" v-if="issues">
+          <Submission
+        v-for="issue in issues"
+        :key="issue.id"
+        :issue="issue"
       />
     </div>
   </section>
@@ -32,10 +32,10 @@ export default {
       type: String,
       required: true,
     },
-    submissions: {
+    issues: {
       type: Array,
       required: false,
-    },
+    }
   },
 };
 </script>
