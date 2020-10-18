@@ -12,7 +12,7 @@ jobs:
       - run: echo " ${{toJSON(github.event)}} "
       - name: "Chequeo de label"  
         if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
-        uses: peter-evans/repository-dispatch@v1.1.2
-        with:
-          token: ${{ secrets.GH_TOKEN_PERSONAL }}
-          event-type: trigger-deploy
+          uses: peter-evans/repository-dispatch@v1.1.2
+          with:
+            token: ${{ secrets.GH_TOKEN_PERSONAL }}
+            event-type: trigger-deploy
