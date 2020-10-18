@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <SubmissionList title="Envíos Aceptados" :issues="issues">
-      Los envíos aceptados se agregan al repositorio como archivos json, después de mergear el pull request.
+      Los envíos aceptados se agregan al repositorio como Issue con la etiqueta "Accepted".
     </SubmissionList>
   </Layout>
 </template>

@@ -7,8 +7,8 @@
     </h2>
     <div class="mt-3 sm:mt-4">
       <p class="text-xl leading-7 text-gray-600">
-        El envío de este formulario activará un pull request usando GitHub
-        Actions, los pull request se mostrará en la pestaña
+        El envío de este formulario activará un Issue usando GitHub
+        Actions, los Issues se mostrará en la pestaña
         <g-link
           to="/pending"
           class="underline text-indigo-600 hover:text-indigo-900 transition ease-in-out duration-150"

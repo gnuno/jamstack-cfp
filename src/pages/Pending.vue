@@ -2,12 +2,12 @@
   <Layout>
     <SubmissionList title="Envíos pendientes" :issues="issues">
       Los envíos pendientes son los <ExternalLink
-        href="https://github.com/gnuno/gnuno-talks/pulls?q=is%3Apr+is%3Aopen+label%3Asubmission"
-        >pull requests</ExternalLink
+        href="https://github.com/gnuno/gnuno-talks/issues?q=is%3Aopen+is%3Aissue+label%3Atalk"
+        >Issues abiertos con etiqueta "Talk"</ExternalLink
       >. Al agregar la API de GitHub como 
       <ExternalLink href="https://gridsome.org/plugins/@gridsome/source-graphql"
         >fuente de GraphQL</ExternalLink
-      > podemos compilarlos estáticamente. Una deploy se activa después de que se abre un nuevo RP para mostrar siempre las últimas presentaciones.
+      > podemos compilarlos estáticamente. Los Issues estan siendo consultados mediante una API de Github para mostrar siempre las últimas presentaciones.
     </SubmissionList>
   </Layout>
 </template>
