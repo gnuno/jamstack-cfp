@@ -25,3 +25,8 @@ jobs:
           when: ${{ github.event.client_payload.when }}
       - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
+    name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.GH_TOKEN_PERSONAL }}
+        event-type: trigger-deploy
