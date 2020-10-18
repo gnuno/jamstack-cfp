@@ -1,6 +1,6 @@
 name: "On Accepted"
 on:
-  issues
+  issues:
     state: closed
     label: Accepted
 
