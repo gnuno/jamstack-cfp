@@ -2,8 +2,8 @@
 title: Titulo
 labels: talk
 ---
-**Speaker**: {{ payload.sender.speaker }}
-**Titulo** : {{ payload.sender.title }}
+**Speaker**: {{ github.event.client_payload.speaker }}
+**Titulo** : {{ github.event.client_payload.sender.title }}
 **Descripción** : {{ payload.sender.description }}
 
 **Tus datos**:
