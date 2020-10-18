@@ -1,5 +1,5 @@
 ---
-title: {{ env.title }}
+title: Propuesta de charla
 labels: talk
 ---
 **Speaker**: {{ env.speaker }}
