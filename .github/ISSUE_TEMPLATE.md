@@ -2,9 +2,9 @@
 title: Titulo
 labels: talk
 ---
-**Speaker**: ${{ github.event.client_payload.speaker }}
-**Titulo** : ${{ github.event.client_payload.title }}
-**Descripción** : ${{ github.event.client_payload.description }}
+**Speaker**: {{ github.event.client_payload.github.sender.speaker }}
+**Titulo** : {{ github.event.client_payload.github.sender.title }}
+**Descripción** : {{ github.event.client_payload.github.sender.description }}
 
 **Tus datos**:
 - **Bio**:
