@@ -1,15 +1,14 @@
 name: "On Accepted"
 on:
   issues:
-    with:
-      state: closed
-      label: Accepted
+    if: contains(github.event.issue.labels.*.name, 'Accepted') && github.event.issue.state === closed
 
 jobs:
   on-accepted:
     name: Re Creating
     runs-on: ubuntu-latest
     steps:
+      - run: echo " ${{toJSON(github.event)}} "
       - uses: peter-evans/repository-dispatch@v1.1.2
         with:
           token: ${{ secrets.GH_TOKEN_PERSONAL }}
