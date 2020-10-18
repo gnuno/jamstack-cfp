@@ -15,6 +15,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           speaker:  github.event.client_payload.speaker
-        with:
-          filename: .github/ISSUE_TEMPLATE.md
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
