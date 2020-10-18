@@ -6,17 +6,20 @@ labels: talk
 **Titulo** : {{ env.title }}
 **Descripción** : {{env.description}}
 
+
 **Tus datos**: 
 - **Bio**: {{env.bio}}
 - **Twitter**: {{env.twitter}}
 - **Instagram**: {{env.instagram}}
 
-### Recursos
+
+**Recursos**:
 
 * **Slides de la presentación**: {{env.slides}}
 * **Repositorio de la charla**: {{env.repo}}
 
-### Extra
+
+**Extra**:
 
 * **¿Tenés la charla preparada?**: {{env.ready}}
 * **¿A partir de qué mes la podrías dar?:** {{env.when}}
