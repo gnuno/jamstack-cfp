@@ -1,8 +1,9 @@
 ---
+title: {{tools.context.payload.title}}
 labels: talk
 ---
-**Speaker**: {{ env.speaker }}
-**Titulo** : {{ env.title }}
+**Speaker**: {{ tools.context.payload.speaker }}
+**Titulo** : {{ tools.context.payload.title }}
 **Descripción** : 
 
 **Tus datos**: 
