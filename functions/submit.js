@@ -54,7 +54,6 @@ export async function handler(request) {
   }
 
   const body = JSON.parse(request.body);
-  if(!request.body.speaker) return;
   return submit(body)
     .then(() => {
       return {
