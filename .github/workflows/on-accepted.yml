@@ -9,10 +9,10 @@ jobs:
     name: Re Creating
     runs-on: ubuntu-latest
     steps:
-      - run: echo " ${{toJSON(github.event)}} "
+      - run: echo " ${{toJSON(github.event.issue)}} "
       - name: "Chequeo de label"  
         if: contains(github.event.issue.labels.*.name, 'Accepted') && ${{github.event.issue.state}} == "closed"
-          uses: peter-evans/repository-dispatch@v1.1.2
-          with:
-            token: ${{ secrets.GH_TOKEN_PERSONAL }}
-            event-type: trigger-deploy
+        uses: peter-evans/repository-dispatch@v1.1.2
+        with:
+          token: ${{ secrets.GH_TOKEN_PERSONAL }}
+          event-type: trigger-deploy
