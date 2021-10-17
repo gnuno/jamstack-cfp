@@ -41,6 +41,7 @@ jobs:
         env:
           BASE_PATH: ${{ secrets.BASE_PATH }}
           NODE_VERSION: "10.x"
+          BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN_PERSONAL: ${{ secrets.GH_TOKEN_PERSONAL }}
           URL: "https://gnuno-talks.netlify.app"
