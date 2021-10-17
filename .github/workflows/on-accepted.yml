@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.issue.state == 'closed' 
             && (!contains(github.event.issue.labels.*.name, 'Accepted'))
-            || contains(github.event.issue.labels.*.name, 'Accepted')}}
+            || github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'Accepted')}}
     steps:
       - run: echo " ${{toJSON(github.event.issue)}} "
       - run: echo "${{contains(github.event.issue.labels.*.name, 'Accepted')}} && ${{github.event.issue.state == 'closed'}}"
