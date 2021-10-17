@@ -12,32 +12,40 @@ env:
   GH_TOKEN_PERSONAL: ${{ secrets.GH_TOKEN_PERSONAL }}
 
 jobs:
-  build-and-deploy:
-    name: Install, Build and Deploy
+  deploy:
+    name: 'Deploy to Netlify'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Cache node_modules
-        id: cache-primes
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - name: npm install, build, and test
         env:
           BASE_PATH: ${{ secrets.BASE_PATH }}
+          NODE_VERSION: "10.x"
+          BRANCH: "master"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_PERSONAL: ${{ secrets.GH_TOKEN_PERSONAL }}
+          URL: "https://gnuno-talks.netlify.app"
         run: |
           npm install
           npm run build
-      - name: Push to pages
-        uses: crazy-max/ghaction-github-pages@v1.2.4
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          build_dir: dist
+          netlify-config-path: ./netlify.toml
+          production-branch: master
+          publish-dir: './dist'
+          functions-dir: 'functions-dist'
+          github-token: ${{ secrets.GH_TOKEN_PERSONAL }}
+          production-deploy: true
+          deploy-message: "Deploy from GitHub Actions"
         env:
-          GITHUB_PAT: ${{ secrets.GH_TOKEN_PERSONAL }}
+          NODE_VERSION: "10.x"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN_PERSONAL: ${{ secrets.GH_TOKEN_PERSONAL }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 2
