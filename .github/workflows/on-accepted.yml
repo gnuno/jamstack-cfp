@@ -1,7 +1,6 @@
 name: "On Accepted"
 on:
   issues:
-    state: closed
     label: Accepted
 
 jobs:
