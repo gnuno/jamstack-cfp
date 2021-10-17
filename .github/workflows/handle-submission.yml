@@ -13,6 +13,7 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_PATH: ${{ secrets.BASE_PATH }}
           speaker:  ${{ github.event.client_payload.speaker }}
           title:  ${{ github.event.client_payload.title }}
           description: ${{ github.event.client_payload.description }}
@@ -30,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: "npm install"
       - run: "npm run build"
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
